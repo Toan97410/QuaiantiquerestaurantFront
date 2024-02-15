@@ -1,8 +1,8 @@
-import Route from "./Route.js"
-import {allRoutes, websitesName} from "./allRoutes.js"
+import Route from "./Route.js";
+import {allRoutes, websiteName} from "./allRoutes.js";
 
 //création d'une route pour la page 404 (page introuvable)
-const route404 = new Route("404", "Page introuvable", "/Pages/404.html");
+const route404 = new Route("404", "Page introuvable", "/pages/404.html");
 
 //fonction pour récupérer la route correspondantes à une URL donnée
 const getRouteByURL = (url) => {
@@ -44,7 +44,7 @@ const LoadContentPage = async () => {
     }
 
     //changement du titre de la page
-    document.title = actualRoute.title + " - " + websitesName;
+    document.title = actualRoute.title + " - " + websiteName;
 };
 
 //fonction pour gérerles évènement de routages (click sur un lien)
