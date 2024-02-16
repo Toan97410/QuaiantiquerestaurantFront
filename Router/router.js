@@ -8,7 +8,7 @@ const route404 = new Route("404", "Page introuvable", "/pages/404.html");
 const getRouteByURL = (url) => {
     let currentRoute = null;
     //parcours de toutes les routes pour trouver la correspondance
-    allRoutes.foreach((element) => { 
+    allRoutes.forEach((element) => { 
         if (element.url == url) {
             currentRoute = element;
         }
