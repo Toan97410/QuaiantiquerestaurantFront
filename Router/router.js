@@ -40,11 +40,14 @@ const LoadContentPage = async () => {
         scriptTag.setAttribute("src", actualRoute.pathJS);
 
         //ajout de la balise script au corps du document
-        document.querySeletor("body").appendChild(scriptTag);
+        document.querySelector("body").appendChild(scriptTag);
     }
 
     //changement du titre de la page
     document.title = actualRoute.title + " - " + websiteName;
+
+    //Afficher et masquer les éléments en fonction du rôle
+    showAndHideElementsForRoles();
 };
 
 //fonction pour gérerles évènement de routages (click sur un lien)
