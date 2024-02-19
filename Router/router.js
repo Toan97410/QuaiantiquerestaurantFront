@@ -27,6 +27,23 @@ const LoadContentPage = async () => {
     const path = window.location.pathname;
     //récupération de l'url actuelle
     const actualRoute = getRouteByURL(path);
+
+    //vérifier ls droit d'accès à la page
+    const allRolesArray = actualRoute.authorize;
+
+    if(allRolesArray.length > 0) {
+        if(allRolesArray.includes("disconnected")) {
+            if(isConnected()) {
+                window.location.replace("/");
+            }
+        }
+        else {
+            const roleUser = getRole();
+            if(!allRolesArray.includes(roleUser)) {
+                window.location.replace("/");
+            }
+        }
+    }
     //récupération du contenu html de la route
     const html = await fetch(actualRoute.pathHtml).then((data) => data.text());
     //ajout du contenu HTML à l'élément avec l'ID "main-page"
